@@ -14,9 +14,9 @@ public class Menu {
 
 	public static void main(String[] args) {
 
-		int opcao, numero, agencia, tipo, aniversario;
+		int opcao, numero, agencia, tipo, aniversario, numeroDestino;
 		String titular;
-		float saldo = 0, limite;
+		float saldo = 0, limite, valor = 0;
 
 		ContaController contas = new ContaController();
 
@@ -172,14 +172,43 @@ public class Menu {
 				break;
 			case 6:
 				System.out.println("\n Sacar");
-
+				
+				System.out.println("digite o numero da conta: ");
+				numero = leia.nextInt();
+				
+				do {
+					System.out.println("digite o valor do saque (R$): ");
+					valor = leia.nextFloat();
+				}while(valor <=0);
+				contas.sacar(numero, valor);
 				break;
 			case 7:
 				System.out.println("\n Depositar");
+				
+				System.out.println("Digite o numero da conta: ");
+				numero = leia.nextInt();
+				
+				do {
+					System.out.println("digite o valor depositado: ");
+					valor = leia.nextFloat();
+				}while(valor <= 0);
+				
+				contas.depositar(numero, valor);
 
 				break;
 			case 8:
 				System.out.println("\n Transferir");
+				
+				System.out.println("Digite o numero da conta de origem: ");
+				numero = leia.nextInt();
+				System.out.println("digite o numero da conta de destino: ");
+				numeroDestino = leia.nextInt();
+				do {
+					System.out.println("Digite o valor da transferencia (R$): ");
+					
+				}while(valor <= 0);
+					
+				
 
 				break;
 			default:
